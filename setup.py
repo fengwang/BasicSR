@@ -73,12 +73,6 @@ version_info = ({})
         f.write(version_file_str)
 
 
-def get_version():
-    with open(version_file, 'r') as f:
-        exec(compile(f.read(), version_file, 'exec'))
-    return locals()['__version__']
-
-
 def make_cuda_ext(name, module, sources, sources_cuda=None):
     if sources_cuda is None:
         sources_cuda = []
@@ -146,7 +140,7 @@ if __name__ == '__main__':
     write_version_py()
     setup(
         name='basicsr',
-        version=get_version(),
+        version='1.4.2',
         description='Open Source Image and Video Super-Resolution Toolbox',
         long_description=readme(),
         long_description_content_type='text/markdown',
